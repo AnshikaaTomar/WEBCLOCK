@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock, Timer, and Stopwatch</title>
+    <link rel="stylesheet" href="clocklook.css">
+</head>
+<body data-theme="light">
+    <div class="theme-toggle">
+        <button id="themeToggle">🌙</button>
+    </div>
+    <div class="container">
+        <h1>Current Time</h1>
+        <div id="clock"></div>
+    </div>
+    <div class="container flex-container">
+        <div class="timer-section">
+            <h1>Timer</h1>
+            <label for="timerInput">Set Timer (HH:MM:SS):</label>
+            <input type="text" id="timerInput" placeholder="00:00:00">
+            <div id="timer">00:01:00</div>
+            <button id="startTimer">Start Timer</button>
+            <button id="stopTimer">Stop Timer</button>
+            <button id="resetTimer">Reset Timer</button>
+        </div>
+    
+        <div class="stopwatch-section">
+            <h1>Stopwatch</h1>
+            <div id="stopwatch">00:00:00</div>
+            <button id="startStopwatch">Start Stopwatch</button>
+            <button id="stopStopwatch">Stop Stopwatch</button>
+            <button id="resetStopwatch">Reset Stopwatch</button>
+        </div>
+    </div>
+    
+    <script src="clockwork.js"></script>
+</body>
+</html>

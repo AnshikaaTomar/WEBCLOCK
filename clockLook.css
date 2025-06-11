@@ -1,0 +1,182 @@
+:root {
+    --background-color: #f0f0f0;
+    --container-bg: white;
+    --text-color: #333;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --container-bg: #2d2d2d;
+    --text-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#themeToggle {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--container-bg);
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    width: 100%;
+    background-color: #282c34;
+    color: white;
+    margin: 60px auto;
+
+}
+
+
+#clock {
+    font-size: clamp(3rem, 8vw, 8rem);
+    margin: 20px 0;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    color: var(--text-color);
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background: var(--container-bg);
+    margin: 20px auto;
+    max-width: 90%;
+    box-shadow: 0 0 20px var(--shadow-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin: 20px 0;
+    color: var(--text-color);
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timer-section, .stopwatch-section {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    text-align: center;
+    padding: 20px;
+    background: var(--container-bg);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--shadow-color);
+}
+
+#timer, #stopwatch {
+    font-size: 3.5em;
+    margin: 30px 0;
+    font-weight: bold;
+}
+
+#timerInput {
+    font-size: 1.2em;
+    padding: 10px;
+    margin: 20px 0;
+    width: 200px;
+    text-align: center;
+    border: 2px solid var(--text-color);
+    border-radius: 5px;
+    background: var(--container-bg);
+    color: var(--text-color);
+}
+
+button {
+    padding: 12px 24px;
+    margin: 8px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+button:focus {
+    outline: none;
+}
+
+button#startTimer, button#startStopwatch {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button#stopTimer, button#stopStopwatch {
+    background-color: #f44336;
+    color: white;
+}
+
+button#resetTimer, button#resetStopwatch {
+    background-color: #008CBA;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 15px auto;
+    }
+
+    #clock {
+        margin: 15px 0;
+    }
+
+    h1 {
+        margin: 15px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    #clock {
+        margin: 10px 0;
+    }
+
+    h1 {
+        margin: 10px 0;
+    }
+}

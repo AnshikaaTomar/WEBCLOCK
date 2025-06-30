@@ -22,8 +22,37 @@ function updateThemeIcon() {
 }
 
 // Clock
-function updateClock() {
+function getTimeInTimeZone(timeZone) {
     const now = new Date();
+    if (timeZone === 'local') return now;
+    // Convert to the selected time zone using Intl.DateTimeFormat
+    const formatter = new Intl.DateTimeFormat('en-US', {
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: false,
+        timeZone: timeZone
+    });
+    // Get formatted time and parse it
+    const parts = formatter.formatToParts(now);
+    const h = parts.find(p => p.type === 'hour').value;
+    const m = parts.find(p => p.type === 'minute').value;
+    const s = parts.find(p => p.type === 'second').value;
+    // Create a new Date object with the formatted time (today's date)
+    const date = new Date();
+    date.setHours(Number(h), Number(m), Number(s));
+    return date;
+}
+
+let selectedTimeZone = 'local';
+const timezoneSelect = document.getElementById('timezoneSelect');
+if (timezoneSelect) {
+    timezoneSelect.addEventListener('change', function() {
+        selectedTimeZone = this.value;
+        updateClock();
+    });
+}
+
+function updateClock() {
+    const now = getTimeInTimeZone(selectedTimeZone);
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');

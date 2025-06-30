@@ -151,6 +151,24 @@ button#resetTimer, button#resetStopwatch {
     color: white;
 }
 
+#timezoneSelect {
+    font-size: 1.1em;
+    padding: 10px;
+    margin: 15px 0 20px 0;
+    border: 2px solid var(--text-color);
+    border-radius: 5px;
+    background: var(--container-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    box-shadow: 0 0 10px var(--shadow-color);
+    outline: none;
+    cursor: pointer;
+}
+
+#timezoneSelect:focus {
+    border-color: #4CAF50;
+}
+
 @media screen and (max-width: 768px) {
     .container {
         padding: 15px;
